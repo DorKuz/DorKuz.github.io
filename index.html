@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+         /* Header */
+         .header {
+            background-color: #ff0000;
+            padding: 10px;
+            color: white;
+        }
+    
+        body {
+            background-color: #000000;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: rgb(255, 225, 0);
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background: #febd69;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main content */
+        .main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: url('https://www.reciclajecontemar.es/wp-content/uploads/recetas-para-reciclar-carne-asada-aprovecha-al-maximo-este-ingrediente.jpg') center/cover;
+            height: 300px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #B12704;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .add-to-cart {
+            background: #FFD814;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #ffffff;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Food</a>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar Restaurante">
+                <button id="searchButton">Buscar</button>
+            </div>
+            <div class="nav-links">
+                <a href="#">Cuenta</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="hero"></div>
+        
+        <div class="products-grid" id="productsGrid">
+                    <div class="product-card" data-name="Baalbeck">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/c2/bc/e8/photo0jpg.jpg?w=600&h=-1&s=1" 
+                        alt="Restaurante 1">
+                        <h3 style="color: #B12704;">Baalbeck</h3>
+                        <center><p style="color: #bcef00;">Ofrece una variedad de platos 
+                            como berenjenas fritas, baklava y el destacado 
+                            "lomo al faraón". También cuenta con opciones vegetarianas, 
+                            veganas y sin gluten.</p></center>
+                        <a href="http://127.0.0.1:5500/imagenes/index2.html">
+                            <button class="add-to-cart">Ir al Sitio</button>
+                        </a>
+                    </div>
+                    <div class="product-card" data-name="El correo Y Amada Monteria">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/db/4b/e8/photo0jpg.jpg?w=600&h=-1&s=1" 
+                        alt="Restaurante 2">
+                        <h3 style="color: #B12704;">El correo Y Amada Monteria</h3>
+                        <center><p style="color: #bcef00;">Ofrece una experiencia culinaria 
+                            centrada en la cocina a la parrilla, con opciones como 
+                            carnes y cortes especiales, acompañadas de una selección de 
+                            vinos y cócteles.</p></center>
+                        <a href="https://www.elcorreoamada.com" target="_blank">
+                            <button class="add-to-cart">Ir al Sitio</button>
+                        </a>
+                    </div>
+                    <div class="product-card" data-name="Alicante Angus & Brangus">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/b3/ff/01/nuestra-terraza-alicante.jpg?w=600&h=500&s=1"
+                        alt="Restaurante 3">
+                        <h3 style="color: #B12704;">Alicante Angus & Brangus</h3>
+                        <center><p style="color: #bcef00;">Ofrecer una experiencia gastronómica 
+                            de calidad. Está especializado en carnes, 
+                            incluyendo cortes Angus y Brangus, reconocidos 
+                            por su sabor y textura superiores.</p></center>
+                        <button class="add-to-cart">Ir al Sitio</button>
+                    </div>
+                    <div class="product-card" data-name="Terralontana Ristorante Caffe">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/6e/63/cb/photo3jpg.jpg?w=600&h=500&s=1" 
+                        alt="Restaurante 4">
+                        <h3 style="color: #B12704;">Terralontana Ristorante Caffe</h3>
+                         <center><p style="color: #bcef00;">Comida Italiana. Ofrece una variedad de platillos que resaltan los 
+                            sabores tradicionales de Italia, acompañados de una 
+                            atención al detalle en su presentación</p></center>
+                        <button class="add-to-cart">Ir al Sitio</button>
+                    </div>
+                    <div class="product-card" data-name="Pescaderia y Restaurante Pesecar">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/e9/eb/37/happy-birthday.jpg?w=600&h=-1&s=1" 
+                        alt="Restaurante 5">
+                        <h3 style="color: #B12704;">Pescaderia y Restaurante Pesecar</h3>
+                         <center><p style="color: #bcef00;">es un lugar destacado por su oferta 
+                            de platos basados en pescados y mariscos frescos, 
+                            características de la cocina caribeña y colombiana</p></center>
+                        <button class="add-to-cart">Ir al Sitio</button>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script> //Funcionalidad de la barra de busqueda//
+        document.getElementById('searchButton').addEventListener('click', function() {
+                   const query = document.getElementById('searchInput').value.toLowerCase();
+                   const cards = document.querySelectorAll('.product-card');
+       
+                   cards.forEach(card => {
+                       const restaurantName = card.getAttribute('data-name').toLowerCase();
+                       if (restaurantName.includes(query)) {
+                           card.style.display = 'block'; // Mostrar tarjeta si coincide
+                       } else {
+                           card.style.display = 'none'; // Ocultar tarjeta si no coincide
+                       }
+                   });
+               });
+    </script>
+    </div>
+</div>
+</body>
+</html>
+      </button>
+    </div>
+</body>
+</html>
